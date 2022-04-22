@@ -1,0 +1,29 @@
+.container {
+    margin: 50px;
+    padding: 0px;
+    border: 10px;
+    border-style: solid;
+    border-color: black;
+    height: 500px; width: 500px;
+    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    background-color: white;
+    color: white;
+    /* border: 1px; */
+    border: 0px;
+    padding: 0px;
+    border-style: solid;
+    border-color: grey;
+}
+
+.square:hover {
+    background-color: black;
+}
+
+.painted {
+    background-color: grey;
+}
