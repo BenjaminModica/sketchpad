@@ -28,7 +28,7 @@ body {
 }
 
 .menu {
-    height: 125px;
+    height: 175px;
     width: 125px;
     margin: 10px;
     margin-left: 30px;
@@ -52,6 +52,11 @@ body {
 
 .sizeSlider {
     width: 100%;
+}
+
+.menu #rainbowBox {
+    align-self: center;
+    transform: scale(1.5);
 }
 
 .menu #clearBtn {

@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const PADSIZE = 500;
 let mouseHold = false;
+let rainbow = false;
 
 createGrid(50);
 
@@ -12,6 +13,12 @@ sizeSlider.addEventListener('mouseup', (e) => replaceGrid(100 - e.target.value))
 
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => replaceGrid(100 - sizeSlider.value));
+
+const rainbowBox = document.querySelector('#rainbowBox');
+rainbowBox.addEventListener('mouseup', () => {
+   rainbow = !rainbowBox.checked;
+   console.log(rainbowBox.checked);
+});
 
 //Removes old grid and replaces it with new one.
 function replaceGrid(size) {
@@ -27,8 +34,22 @@ function addEventListeners() {
     const squares = document.querySelectorAll('.square');
     squares.forEach(square => square.addEventListener('mouseover', (e) => {
         e.preventDefault();
-        if (mouseHold) square.classList.add('painted');
-    }));
+        if (mouseHold) {
+            if (rainbow) {
+                paintRainbow(square);
+            } else {
+                square.classList.add('painted');
+            }
+        }
+    }))
+}
+
+function paintRainbow(square) {
+    let r = Math.random() * 255;
+    let g = Math.random() * 255;
+    let b = Math.random() * 255;
+
+    square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 //Listens for when user holds down mouse
